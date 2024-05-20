@@ -1,0 +1,28 @@
+version: '3'
+# TODO: substitute reg with your private acr repo name
+
+services:
+  
+  backend:
+    image: reg.azurecr.io/fapi-azure-backend:latest # TODO: substitute reg with your private acr repo name
+    restart: always
+    build: # build section not really needed, since this is just
+      # a docker-compose-like deployment file for the cloud..
+      context: ./backend
+      args:
+        INSTALL_DEV: 'false'
+    
+  frontend:
+    image: reg.azurecr.io/fapi-azure-frontend:latest # TODO: substitute reg with your private acr repo name
+    restart: always
+    build: # build section not really needed
+      context: ./frontend
+      args: 
+        - NODE_ENV=production
+    depends_on:
+      - backend
+    ports:
+      - 80:80
+    
+volumes:
+  app-db-data:

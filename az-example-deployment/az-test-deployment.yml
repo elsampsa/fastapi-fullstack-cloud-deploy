@@ -18,7 +18,7 @@ services:
     image: fapi-azure-backend:latest
     restart: always
     build:
-      context: ./backend
+      context: ../full-stack-fastapi-template/backend
       args:
         INSTALL_DEV: 'false'
     depends_on:
@@ -30,7 +30,7 @@ services:
     image: fapi-azure-frontend:latest
     restart: always
     build:
-      context: ./frontend
+      context: ../full-stack-fastapi-template/frontend
       args: 
         - NODE_ENV=production
     depends_on:

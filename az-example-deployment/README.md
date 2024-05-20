@@ -23,18 +23,17 @@ test-template.env           # TODO: copy into test.env & modify (see below)
 cloud-template.env          # TODO: copy into cloud.env & modify (see below)
 deploy-template.bash        # TODO: copy into deploy.bash & modify (see below)
 push-template.bash          # TODO: copy into push.bash & modify (see below)
+cloud-deployment-template.yml        
+                            # TODO: copy into cloud-deployment.yml & modify (see below)
 
-az-test-deployment.yaml     # docker-compose file you can run locally
-                            # softlink into 
-                            # ../full-stack-fastapi-template/az-test-deployment.yaml
-                            # and run therein
-test.env                    # used by az-test-deployment.yaml
+az-test-deployment.yml      # docker-compose file you can run locally
+test.env                    # used by az-test-deployment.yml
                             # TODO: Sensitive information create by YOU
                             # never include into commit
 
-cloud-deployment.yaml       # a stripped-down/adapted version of az-test-deployment.yaml
+cloud-deployment.yml        # a stripped-down/adapted version of az-test-deployment.yml
                             # used for actual deployment
-cloud.env                   # use by cloud-deployment.yaml
+cloud.env                   # use by cloud-deployment.yml
                             # TODO: Sensitive information create by YOU
                             # never include into commit
 
@@ -69,12 +68,15 @@ And check that you are using the correct subscription
 
 ### 3. Templating
 
-Create env files and bash scripts from the templates and as instructed above.
+Create env & yml files and bash scripts from the templates and as instructed above.
 
 ### 4. Run fastapi locally 
 
 - Run in your local computer the original fastapi fullstack example
-- Run the the fullstack example *again* with `az-test-deployment.yaml` (see above) and see that it works ok
+- Run the the fullstack example *again* with `az-test-deployment.yml` (see above) and see that it works ok, i.e.:
+  ```bash
+  docker-compose -f az-test-deployment.yml up
+  ```
 - Now you should have images `fapi-azure-backend` and `fapi-azure-frontend` in your local docker
 
 ### 5. Push 
@@ -97,7 +99,8 @@ about that in [../azdeploy.py](../azdeploy.py) source code.
 
 ## Workflow
 
-TODO
+In your app's azure page, there is a tab named "Activity log".  Keep an eye on it to see
+how things are progressing. Remember that Azure deployment can be kinda slow.
 
 ## Notes
 
