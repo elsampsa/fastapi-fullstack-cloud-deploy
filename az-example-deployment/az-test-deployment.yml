@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  db:
+    image: postgres:12
+    restart: always
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - test.env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    
+  backend:
+    image: fapi-azure-backend:latest
+    restart: always
+    build:
+      context: ./backend
+      args:
+        INSTALL_DEV: 'false'
+    depends_on:
+      - db
+    env_file:
+      - test.env
+    
+  frontend:
+    image: fapi-azure-frontend:latest
+    restart: always
+    build:
+      context: ./frontend
+      args: 
+        - NODE_ENV=production
+    depends_on:
+      - backend
+    env_file:
+      - test.env
+    ports:
+      - 80:80
+    
+volumes:
+  app-db-data:
