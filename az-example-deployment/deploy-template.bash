@@ -8,3 +8,5 @@
     --env_file=cloud.env
 # add --skip_create to the last line if you want
 # to skip app creation
+# NOTE: your-acr-registry is the name of the registry 
+# WITHOUT ".azurecr.io"
