@@ -116,4 +116,4 @@ While running, `deploy.bash` I get:
 ERROR: Cannot find user or service principal in graph database for
 ```
 Woopsie - stuff has not propagated fast enough in Azure.  Just run `deploy.bash` again.  Before that,
-you might want to add `--skip_create` to the last argument calling `azdeploy.py`.
+you might want to edit `deploy.bash` and add `--skip_create` to the last argument calling `azdeploy.py`.
