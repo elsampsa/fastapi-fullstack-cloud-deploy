@@ -44,7 +44,7 @@ deploy.bash                 # TODO: Sensitive information create by YOU
 
 push.bash                   # TODO: Sensitive information create by YOU
                             # never include into commit
-                            # softlink into ../full-stack-fastapi-template/push-az.bash
+                            # tags & pushes your docker images from local to your ACR
 ```
 
 ## Step-by-step
@@ -81,7 +81,7 @@ Create env & yml files and bash scripts from the templates and as instructed abo
 
 ### 5. Push 
 
-Push `fapi-azure-backend` and `fapi-azure-frontend` into the ACR.  You can use the convenience script `push-az.bash`
+Push `fapi-azure-backend` and `fapi-azure-frontend` into the ACR.  You can use the convenience script `push.bash`
 (see above)
 
 ### 6. Deploy
@@ -94,7 +94,7 @@ This command uses [../azdeploy.py](../azdeploy.py) and
 automatizes many of the repetitive steps that you don't really
 want to do from the azure web UI.
 
-The ACR authentization by m$ is confusing  Please read the notes
+Although the ACR authentization by m$ is confusing, it has been automatized here for you.  Please read the notes
 about that in [../azdeploy.py](../azdeploy.py) source code.
 
 ## Workflow
@@ -106,3 +106,12 @@ how things are progressing. Remember that Azure deployment can be kinda slow.
 
 WARNING: the initial password is set only once!  If you don't clear the db, changing the env variable 
 `FIRST_SUPERUSER_PASSWORD` doesn't have any effect.
+
+## FAQ
+
+While running, `deploy.bash` I get:
+```bash
+ERROR: Cannot find user or service principal in graph database for
+```
+Woopsie - stuff has not propagated fast enough in Azure.  Just run `deploy.bash` again.  Before that,
+you might want to add `--skip_create` to the last argument calling `azdeploy.py`.

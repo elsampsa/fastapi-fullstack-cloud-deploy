@@ -3,3 +3,4 @@ cloud.env
 deploy.bash
 push.bash
 cloud-deployment.yml
+tailogs.bash

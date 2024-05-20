@@ -88,6 +88,9 @@ acr_password = runComm(f"""az acr credential show
 # writeLogScript(p) # quicktest
 # sys.exit(2)
 
+# print("p.skip_create=",p.skip_create) # debug
+# sys.exit(2)
+
 if p.skip_create:
     print("2. WARNING: SKIPPING WEBAPP CREATION")
 else:
