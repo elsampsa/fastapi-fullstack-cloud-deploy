@@ -3,7 +3,7 @@
 # run first docker-compose -f filename build [--no-cache]
 #
 group=your-resource-group
-reg=your-acr-registry # $reg.azurecr.io
+reg=your-acr-registry # put here the name without ".azurecr.io"
 imgnames="fapi-azure-backend fapi-azure-backend"
 
 export ACR_PASSWORD=$(az acr credential show \
