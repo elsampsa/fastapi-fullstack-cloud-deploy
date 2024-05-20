@@ -1,10 +1,8 @@
 # FastAPI Fullstack Example Cloud Deployment
 
-*Under construction*
-
 - Azure deployment in [az-example-deployment/](az-example-deployment/)
-- AWS deployment TODO
-- GCP deployment TODO
+- AWS deployment **TODO**
+- GCP deployment **TODO**
 
 *What's in here?*
 ```

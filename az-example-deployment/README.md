@@ -3,6 +3,8 @@
 
 Here we deploy the (official) fastapi fullstack example as an Azure (multi-container) webapp into the cloud.
 
+The deployment is highly automatized, using scripts that in turn use the ``az`` command-line program.
+
 This example scraps the traefik reverse-proxy server and postgresql server from the original example.  Instead, an azure-managed
 postgresql server is used.
 
