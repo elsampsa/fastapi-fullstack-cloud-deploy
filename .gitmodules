@@ -1,0 +1,3 @@
+[submodule "full-stack-fastapi-template"]
+	path = full-stack-fastapi-template
+	url = git@github.com:elsampsa/full-stack-fastapi-template.git
